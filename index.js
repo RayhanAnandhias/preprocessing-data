@@ -24,13 +24,14 @@ while ((line = liner.next())) {
     lineString = lineString.slice(2);
     arrQuestion[idQuestion - 1].option.push(lineString);
     if (firstChar === '1') {
-      arrQuestion[idQuestion - 1].answer = lineString;
+      arrQuestion[idQuestion - 1].answer =
+        arrQuestion[idQuestion - 1].option.length - 1;
     }
   }
 }
 
 FileSystem.writeFile(
-  './data-soal/psychology.json',
+  './data-soal/Psychology-fix.json',
   JSON.stringify(arrQuestion),
   (err) => {
     if (err) throw err;
